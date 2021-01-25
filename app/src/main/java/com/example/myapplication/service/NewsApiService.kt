@@ -1,10 +1,17 @@
 package com.example.myapplication.service
 
-import com.example.myapplication.model.CategoriesResponse
+import com.example.myapplication.model.DetailResponse
+import com.example.myapplication.model.NewsResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface NewsApiService {
     @GET("/v1/news/categories")
-    fun getCategories():Call<CategoriesResponse>
+    fun getCategories():Call<NewsResponse>
+    @GET("/v1/news/categories/{id}/news")
+    fun getNews(@Path("id") idCat:Int, @Query("page") page: Int):Call<NewsResponse>
+    @GET("/v1/news/details")
+    fun getDetail(@Query("id") idNews: Int):Call<DetailResponse>
 }

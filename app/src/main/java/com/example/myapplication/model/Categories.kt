@@ -7,6 +7,6 @@ data class Categories(
 
 data class CategoriesResponse(
     val code: Int,
-    var list: List<Categories>
+    val list: List<Categories>
 )
 

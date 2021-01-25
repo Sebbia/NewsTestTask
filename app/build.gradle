@@ -45,4 +45,19 @@ dependencies {
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    def paging_version = "2.1.2"
+
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    def lifecycle_version = "2.2.0"
+    def arch_version = "2.1.0"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+
+    apply plugin: 'kotlin-android-extensions'
 }
