@@ -10,13 +10,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.data.model.News
 import com.example.myapplication.ui.utils.clickListener
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewsAdapter(private val cellClickListener: clickListener) : PagedListAdapter<News, NewsAdapter.NewsViewHolder>(
     NEWS_COMPARATOR
 ){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.news_card,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.news_card, parent, false)
 
         return NewsViewHolder(view)
     }
@@ -28,7 +31,7 @@ class NewsAdapter(private val cellClickListener: clickListener) : PagedListAdapt
         }
         holder.itemView.setOnClickListener {
             if (news != null) {
-                cellClickListener.onNewsClickListener(news.id,news.shortDescription,news.title)
+                cellClickListener.onNewsClickListener(news.id, news.shortDescription, news.title)
             }
         }
     }
@@ -36,15 +39,26 @@ class NewsAdapter(private val cellClickListener: clickListener) : PagedListAdapt
 
 
 
-    class NewsViewHolder(view : View):RecyclerView.ViewHolder(view){
+    class NewsViewHolder(view: View):RecyclerView.ViewHolder(view){
          private val title = view.findViewById<TextView>(R.id.titleID)
         private val shortDesc = view.findViewById<TextView>(R.id.shortNewsID)
         private val date = view.findViewById<TextView>(R.id.dateID)
-        fun bind (news : News){
+
+
+
+
+        fun bind(news: News){
 
             title.text = news.title
             shortDesc.text = news.shortDescription
-            date.text = news.date
+
+            val outputFormat: DateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.US)
+            val inputFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.US)
+
+            val inputText = news.date
+            val dateFormat: Date = inputFormat.parse(inputText)
+            val outputText: String = outputFormat.format(dateFormat)
+            date.text = outputText
         }
     }
 
