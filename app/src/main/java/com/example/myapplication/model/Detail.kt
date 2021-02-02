@@ -1,4 +1,4 @@
-package com.example.myapplication.model
+package com.example.myapplication.data.model
 
 data class Detail(
         var date: String,

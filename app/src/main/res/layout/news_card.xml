@@ -11,9 +11,28 @@
     >
     <TextView
         android:id="@+id/titleID"
+        android:layout_marginTop="10dp"
         android:layout_width="250dp"
         android:layout_height="50dp"
         >
     </TextView>
+
+    <TextView
+        android:id="@+id/shortNewsID"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/titleID"
+        >
+    </TextView>
+    <TextView
+        android:id="@+id/dateID"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/shortNewsID"
+        >
+    </TextView>
+
 </RelativeLayout>
 </androidx.cardview.widget.CardView>

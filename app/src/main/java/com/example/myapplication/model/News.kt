@@ -1,9 +1,13 @@
-package com.example.myapplication.model
+package com.example.myapplication.data.model
+
+
+
+
 data class News(
-        var date: String,
-        var id: Int,
-        var shortDescription: String,
-        var title: String
+        val id: Int,
+        val date: String,
+        val shortDescription: String,
+        val title: String
 )
 
 data class NewsResponse(

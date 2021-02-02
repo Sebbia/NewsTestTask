@@ -1,27 +1,31 @@
 package com.example.myapplication.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.example.myapplication.datasource.NewsDataSource
 import com.example.myapplication.datasource.NewsDataSourceFactory
-import com.example.myapplication.model.News
+import com.example.myapplication.data.model.News
 
-class NewsViewModel : ViewModel() {
+class NewsViewModel(application: Application, idCat:Int) : AndroidViewModel(application) {
 
     val newsPagedList : LiveData<PagedList<News>>
 
-    private val liveNewsDataSource : LiveData<NewsDataSource>
 
+    val id = idCat
+    private val liveNewsDataSource : LiveData<NewsDataSource>
     init{
-        val itemDataSourceFactory = NewsDataSourceFactory()
+
+        val itemDataSourceFactory = NewsDataSourceFactory(idCat)
 
         liveNewsDataSource = itemDataSourceFactory.newsLiveDataSource
 
-        val config = PagedList.Config.Builder().setEnablePlaceholders(false)
+       val config = PagedList.Config.Builder().setEnablePlaceholders(true)
             .setPageSize(NewsDataSource.PAGE_SIZE)
             .build()
+
         newsPagedList = LivePagedListBuilder(itemDataSourceFactory, config).build()
     }
+
 }

@@ -1,8 +1,11 @@
-package com.example.myapplication.model
+package com.example.myapplication.data.model
+
+
 
 data class Categories(
-        private var id: Int,
-        private var name: String
+
+         val id: Int,
+         val name: String
 )
 
 data class CategoriesResponse(
