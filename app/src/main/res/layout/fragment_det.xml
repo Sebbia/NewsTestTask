@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.DetFragment">
+
+
+    <TextView
+        android:id="@+id/titleID"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:text="Title"
+        android:layout_marginTop="20dp"
+
+         />
+
+    <TextView
+        android:id="@+id/shortDescriptionID"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:text=""
+        android:layout_below="@+id/titleID"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/fullDescriptionID"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Я не реализовал кэш, поэтому без интернета ничего не отображается, но
+                        есть костыль, swiperefresh чтобы обновить страницу"
+
+        android:layout_below="@+id/shortDescriptionID"
+        android:layout_marginTop="10dp"
+        />
+</RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
